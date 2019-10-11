@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="login">
 
-    <Card class="login">
+    <Card class="login-card">
       <p slot="title">教学楼信息管理系统</p>
       <div class="user-info">
         <div class="user-name">
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'home',
+  name: 'login',
   data() {
     return {
       username: '',
@@ -34,7 +34,8 @@ export default {
   methods: {
     login() {
       if (this.username !== '' && this.password !== '') {
-        this.$router.push("/");
+        localStorage.setItem("token","asdasd");
+        this.$router.replace("/");
       } else {
         this.$Message.error({
           content: "请填写完整的用户信息",
@@ -47,14 +48,14 @@ export default {
 </script>
 
 <style lang="less">
-.home {
+.login {
   height: 100%;
   background: #5cadff;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .login {
+  .login-card {
     width: 650px;
     height: 300px;
 

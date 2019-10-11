@@ -7,6 +7,12 @@
 <script>
 export default {
   name: 'app',
+
+  created() {
+    this.$Message.config({
+      top: 200,
+    });
+  }
 }
 </script>
 
