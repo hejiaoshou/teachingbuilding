@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Table border :columns="columns1" :data="data1">
+    <Table height="800" border :columns="columns1" :data="data1">
       <template slot-scope="{ row }" slot="name">
         <strong>{{ row.campus }}</strong>
       </template>

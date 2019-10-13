@@ -11,12 +11,29 @@ const islogin = require('./middleware/isLogin');
 
 // 导入控制器
 const login = require('./controller/login');
+const teacher = require('./controller/teacher');
+
+// 允许跨域
+app.use(async (ctx, next) => {
+  ctx.set('Access-Control-Allow-Origin','*');
+  ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+  ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (ctx.method == 'OPTIONS') {
+    ctx.body = 200; 
+  } else {
+    await next();
+  }
+})
 
 app.use(Static(path.resolve(__dirname,"./public")));
 app.use(koaBody());
 app.use(islogin); // 登录校验
 
 router.post('/login', login);
+router.post('/teacher/add',teacher.addteacher);
+router.post('/teacher/remove',teacher.removeteacher);
+router.get('/teacher/list',teacher.teacherlist);
+router.post('/teacher/update',teacher.updateteacher);
 
 app
   .use(router.routes())

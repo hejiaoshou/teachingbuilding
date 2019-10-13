@@ -10,10 +10,10 @@ module.exports = async function login (ctx, next) {
     
     utils.resData(ctx,{
       token: getToken(userInfo)
-    },'ok')
+    },'登陆成功')
 
   } else {
-    utils.resData(ctx,{},'',0)
+    utils.resData(ctx,{},'登陆失败',0)
   }
 }
 

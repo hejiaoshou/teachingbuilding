@@ -32,7 +32,7 @@
             <BreadcrumbItem>{{menuText[menuIndex].text}}</BreadcrumbItem>
           </Breadcrumb>
           <Card>
-            <div style="height: 550px">
+            <div style="height: 800px">
               <tb-info v-show="menuIndex == 0"/>
               <tbc-info v-show="menuIndex == 1"/>
               <c-list v-show="menuIndex == 2"/>

@@ -14,7 +14,7 @@ export default {
           key: "name"
         },
         {
-          title: "Age",
+          title: "Age1",
           key: "age"
         },
         {
