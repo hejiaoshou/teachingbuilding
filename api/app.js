@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const Static = require('koa-static');
 const path = require('path');
 const koaBody = require('koa-body');
+const config = require('./config/config')
 const app = new Koa();
 const router = new Router();
 
@@ -39,4 +40,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(config.DefaultPort);
+
+console.log('app run port: ',config.DefaultPort)
