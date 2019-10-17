@@ -13,6 +13,7 @@ const islogin = require('./middleware/isLogin');
 // 导入控制器
 const login = require('./controller/login');
 const teacher = require('./controller/teacher');
+const course = require('./controller/course');
 
 // 允许跨域
 app.use(async (ctx, next) => {
@@ -31,10 +32,16 @@ app.use(koaBody());
 app.use(islogin); // 登录校验
 
 router.post('/login', login);
+
 router.post('/teacher/add',teacher.addteacher);
 router.post('/teacher/remove',teacher.removeteacher);
 router.get('/teacher/list',teacher.teacherlist);
 router.post('/teacher/update',teacher.updateteacher);
+
+router.post('/course/add', course.addCourse);
+router.post('/course/remove', course.removeCourse);
+router.post('/course/list', course.findCourse);
+router.post('/course/update', course.updateCourse);
 
 app
   .use(router.routes())
@@ -42,4 +49,4 @@ app
 
 app.listen(config.DefaultPort);
 
-console.log('app run port: ',config.DefaultPort)
+console.log('app run port: ',config.DefaultPort);
